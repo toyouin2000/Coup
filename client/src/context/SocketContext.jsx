@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 
 const SocketContext = createContext(null);
 
-const SERVER_URL = 'http://localhost:3001';
+const SERVER_URL = 'https://coup-m28v.onrender.com';
 
 export function SocketProvider({ children }) {
   const socketRef = useRef(null);
