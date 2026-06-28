@@ -16,7 +16,13 @@ const PORT = process.env.PORT || 3001;
 
 // ── Express setup ─────────────────────────────────────────────────────────────
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://your-project.vercel.app"
+    ],
+    credentials: true
+}));
 app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
