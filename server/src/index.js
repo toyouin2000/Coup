@@ -49,7 +49,10 @@ app.get('/health', (_, res) => res.json({ status: 'ok' }));
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: [
+      "http://localhost:5173",
+      "https://coup-red.vercel.app"
+    ],
     methods: ['GET', 'POST'],
     credentials: true,
   },
