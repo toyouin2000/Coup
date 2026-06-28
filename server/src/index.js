@@ -30,13 +30,18 @@ const __dirname = path.dirname(__filename);
 
 // Path to the React build
 const clientPath = path.join(__dirname, "../../client/dist");
-
-app.use(express.static(clientPath));
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+    message: "Coup API is running"
+  });
+});
+// app.use(express.static(clientPath));
 
 // SPA routing
-app.get("/{*any}", (req, res) => {
-    res.sendFile(path.join(clientPath, "index.html"));
-});
+// app.get("/{*any}", (req, res) => {
+//     res.sendFile(path.join(clientPath, "index.html"));
+// });
 
 app.get('/health', (_, res) => res.json({ status: 'ok' }));
 
